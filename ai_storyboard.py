@@ -16,10 +16,10 @@ def load_script(script):
     except Exception as e:
         print(f"Error reading the script file: {e}")
         return None
-script_content = load_script('D:/codes/ai_storyboard/creativity.txt')
+script_content = load_script('D:/codes/ai_storyboard/creativity.txt') #path for script
 
 #generating the missing data in the script using the Gemini generative model
-genai.configure(api_key="AIzaSyCYdLd1b819Lr-r6Oh6O8TL-jR5lIYtLKA")
+genai.configure(api_key="Gemini_api_key")
 model = genai.GenerativeModel("gemini-1.5-flash")
 response = model.generate_content("analysze and break the given script into 6 scenes, givea camera angles, mood and backgroung setting and each scene must be created as an promt for stable diffusion with art style as sketch and manga or anime to understand better. give extreme details to make the images realistic (do not use any '*' and empty spaces, do not use any age factors and no fiction and dont specify age of any character):" +script_content)
 #print(response.text)
